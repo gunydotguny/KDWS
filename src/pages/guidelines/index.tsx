@@ -31,7 +31,7 @@ export default function App() {
             pt: '126px'
         }
     }}>
-            <Box sx={{
+            {/* <Box sx={{
                 p: theme.spacing('100px', 0, '80px'),
                 '@media(max-width: 828px)': {
                     p: theme.spacing('40px', 0),
@@ -53,7 +53,7 @@ export default function App() {
                             lineHeight: '40px',
                         },
                     }}>
-                        Charts
+                        Foundation
                     </Typography>
                     <Typography sx={{
                         mt: 2,
@@ -65,7 +65,7 @@ export default function App() {
                             lineHeight: '24px',
                         },
                     }}>
-                        KDWS Charts는 의료 데이터 연구에 필수적인 시각화 자료를 팀이 쉽게 만들어낼 수 있게 돕습니다. Bar Chart부터 Circos까지 다양한 종류의 시각화 자료를 선택하고, 실제 데이터를 입력해 보고, 원하는 사이즈의 그림파일로 다운로드하여 와이어프레임 제작에 사용할 수 있습니다.
+                        의료기관을 위한 서비스 디자인의 기본이 되는 공통 가치와 원칙은 신뢰성의 중심을 잡아주고 서비스를 통일된 기획의도로 드러나게 합니다. 기획 요소간의 연결성을 바탕으로 모든 서비스 기획의 토대를 형성합니다.
                     </Typography>
                     <ButtonBase sx={{
                         mt: 4,
@@ -108,8 +108,8 @@ export default function App() {
                     m: theme.spacing('40px', 0, '0'),
                 },
             }}>
-                {charts.map((item, index) => {
-                    return <Link key={index} href={`/charts/${item.type}`} passHref>
+                {foundations.map((item, index) => {
+                    return <Link key={index} href={`/foundation/${item.type}`} passHref>
                         <ButtonBase
                             disableRipple
                             sx={{
@@ -159,7 +159,7 @@ export default function App() {
                                     objectFit: 'cover'
                                 }
                             }}>
-                                <img src={`/charts/${item.type}.png`} className="icon" />
+                                <img src={`/foundation/${item.type}.png`} className="icon" />
                             </Box>
                             <Box sx={{
                                 flex: 1,
@@ -193,7 +193,7 @@ export default function App() {
                         </ButtonBase>
                     </Link>
                 })}
-            </Box>
+            </Box> */}
         </Box>
     </Box>
 }

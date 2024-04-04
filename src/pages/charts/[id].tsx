@@ -26,8 +26,8 @@ const max = 1920;
 
 export default function App() {
     const router = useRouter()
-    // const { id } = router.query
-    const chart = charts[_.findIndex(charts, (el: any) => el.type === 'bar_chart')]
+    const { id } = router.query
+    const chart = charts[_.findIndex(charts, (el: any) => el.type === id)]
     return <Box sx={{
         minWidth: '1376px',
         '@media(max-width: 828px)': {
@@ -105,7 +105,7 @@ export default function App() {
                                     height: 'auto',
                                 }
                             }}
-                            onClick={() => window.open('https://www.figma.com/file/s4LF8C7lP1WVoZD9BIvqoR/KHC-DP-Wireframe-System?type=design&node-id=0%3A1&mode=design&t=0Wrqpu3RY3mLWmeo-1')}
+                                onClick={() => window.open('https://www.figma.com/file/s4LF8C7lP1WVoZD9BIvqoR/KHC-DP-Wireframe-System?type=design&node-id=0%3A1&mode=design&t=0Wrqpu3RY3mLWmeo-1')}
                             >
                                 <img src='/logo/figma.png' className="icon" />
                                 <Box sx={{
@@ -117,13 +117,13 @@ export default function App() {
                             </ButtonBase>
                         </Box>
                     </Box>
-                    <Canvas />
+                    <Canvas chart={chart} />
                 </>}
         </Box>
     </Box>
 }
 
-function Canvas() {
+function Canvas({ chart }: { chart: any }) {
     const [tempWidth, setTempWidth] = useState<number>(640)
     const [tempHeight, setTempHeight] = useState<number>(480)
     const [width, setWidth] = useState<number>(640)
@@ -289,7 +289,7 @@ function Canvas() {
                                             height: `${height}px`,
                                             backgroundColor: '#ffffff',
                                         }}>
-                                            <Graph />
+                                            {chart.type === 'bar_chart' && <Graph />}
                                         </Box>
                                     </TransformComponent>
                                 </>)}
@@ -380,10 +380,30 @@ function Canvas() {
                         <img src='/icon/pen.png' style={{
                             position: 'absolute',
                             top: '50%',
-                            right: 16,
+                            right: 16 + 24,
                             transform: 'translateY(-50%)',
                             width: 14, height: 'auto', zIndex: 2
                         }} />
+                        <Box sx={{
+                            width: '48px',
+                            height: '48px',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            '@media(max-width: 828px)': {
+                                width: 36,
+                                height: 36,
+                            }
+                        }}
+                            onClick={() => {
+                                setTempWidth(640)
+                                setWidth(640)
+                            }}
+                        >
+                            <img src='/icon/rotate.png' style={{
+                                width: 14, height: 'auto'
+                            }} />
+                        </Box>
                     </Box>
                     <Box sx={{
                         width: '1px', backgroundColor: grey[300],
@@ -450,10 +470,30 @@ function Canvas() {
                         <img src='/icon/pen.png' style={{
                             position: 'absolute',
                             top: '50%',
-                            right: 16,
+                            right: 16 + 24,
                             transform: 'translateY(-50%)',
-                            width: 14, height: 'auto', zIndex: 2
+                            width: 14, height: 'auto', zIndex: 2,
                         }} />
+                        <Box sx={{
+                            width: '48px',
+                            height: '48px',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            '@media(max-width: 828px)': {
+                                width: 36,
+                                height: 36,
+                            }
+                        }}
+                            onClick={() => {
+                                setTempHeight(480)
+                                setHeight(480)
+                            }}
+                        >
+                            <img src='/icon/rotate.png' style={{
+                                width: 14, height: 'auto'
+                            }} />
+                        </Box>
                     </Box>
                 </Box>
                 <Box sx={{

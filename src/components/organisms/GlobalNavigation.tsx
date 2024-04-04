@@ -20,9 +20,6 @@ export default function GlobalNavigation() {
     const handleMenuClick = () => {
         if (menuOpen === true && menuDisplay === 'flex') {
             setMenuOpen(false)
-            setTimeout(() => {
-                setMenuDisplay('none')
-            }, 500)
         } else if (menuOpen === false && menuDisplay === 'none') {
             setMenuOpen(true)
             setMenuDisplay('flex')
@@ -31,6 +28,13 @@ export default function GlobalNavigation() {
     useEffect(() => {
         setMounted(true)
     }, [])
+    useEffect(() => {
+        if (menuOpen === false) {
+            setTimeout(() => {
+                setMenuDisplay('none')
+            }, 500)
+        }
+    }, [router, menuOpen])
     return mounted ? <>
         <Box sx={{
             position: 'fixed',
@@ -108,14 +112,10 @@ export default function GlobalNavigation() {
                     {pages.map((item, index) => {
                         const focused = `/${pathnames[1]}` === item.url
                         const onClick = (e: any) => {
-                            e.stopPropagation()
-                            e.preventDefault()
-                            if (item.url === '') {
-                                alert('작업중입니다.')
-                            } else {
-                                router.push(item.url)
-                                setMenuOpen(false)
-                            }
+                            setMenuOpen(false)
+                            setTimeout(() => {
+                                setMenuDisplay('none')
+                            }, 500)
                         }
                         return <Link key={index} href={item.url} passHref>
                             <ButtonBase

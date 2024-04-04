@@ -33,7 +33,7 @@ import _ from "lodash";
 import GlobalNavigation from "../components/organisms/GlobalNavigation";
 import { Box } from "@mui/material";
 import QuestionModal from "../components/templetes/QuestionModal";
-import GlobalChartDrawer from "../components/organisms/GlobalChartDrawer";
+import LocalNavigation from "../components/organisms/LocalNavigation";
 ChartJS.register(
   LineController,
   BarController,
@@ -206,7 +206,7 @@ function MyApp(props: MyAppProps) {
           <CssBaseline />
           <Global styles={reset} />
           <GlobalNavigation />
-          <GlobalChartDrawer />
+          <LocalNavigation />
           <Component {...pageProps} key={router.route} />
         </ThemeProvider>
       </RecoilRoot>

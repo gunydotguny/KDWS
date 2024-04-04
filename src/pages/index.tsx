@@ -84,6 +84,9 @@ export default function App() {
                 alignItems: 'flex-start',
                 border: `1px solid ${grey[300]}`,
                 p: theme.spacing(3),
+                '@media(max-width: 828px)': {
+                  p: theme.spacing(2),
+              },
                 transition: 'all 0.5s ease',
                 '& .icon_colored': {
                   position: 'absolute',
@@ -121,7 +124,10 @@ export default function App() {
                 <img src={`/icon/${item.icon}_colored.png`} className="icon icon_colored" />
               </Box>
               <Box sx={{
-                m: theme.spacing(6, 0, 0, 0)
+                m: theme.spacing(6, 0, 0, 0),
+                '@media(max-width: 828px)': {
+                  m: theme.spacing(2, 0, 0, 0),
+              },
               }}>
                 <Typography sx={{
                   fontSize: 20,

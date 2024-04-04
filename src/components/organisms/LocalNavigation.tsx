@@ -1,18 +1,21 @@
 import { Box, ButtonBase, Container, Drawer, Typography, alpha } from "@mui/material"
 import { grey } from "@mui/material/colors"
 import { useRouter } from "next/router"
-import { charts } from "../../constants"
+import { charts, components, foundations } from "../../constants"
 import Link from "next/link"
 import { theme } from "../../themes/theme"
 import { useEffect, useState } from "react"
 
-export default function GlobalChartDrawer() {
+export default function LocalNavigation() {
     const router = useRouter()
     const pathnames = router.pathname.split("/");
-    const { type } = router.query
+    const { id } = router.query
     const [mounted, setMounted] = useState<boolean>(false)
     const [menuOpen, setMenuOpen] = useState<boolean>(false)
     const [menuDisplay, setMenuDisplay] = useState<string>('none')
+    const title = pathnames[1] === 'foundation' ? 'Foundation' : pathnames[1] === 'components' ? 'Components' : 'Charts'
+    const show = pathnames[1] === 'foundation' || pathnames[1] === 'components' || pathnames[1] === 'charts'
+    const array = pathnames[1] === 'foundation' ? foundations : pathnames[1] === 'components' ? components : charts
     const handleMenuClick = () => {
         if (menuOpen === true && menuDisplay === 'flex') {
             setMenuOpen(false)
@@ -27,7 +30,7 @@ export default function GlobalChartDrawer() {
     useEffect(() => {
         setMounted(true)
     }, [])
-    return <>
+    return mounted ? <>
         <ButtonBase
             disableRipple
             sx={{
@@ -38,7 +41,7 @@ export default function GlobalChartDrawer() {
                 zIndex: 9999,
                 display: 'none',
                 '@media(max-width: 828px)': {
-                    display: pathnames[1] === 'charts' ? 'flex' : 'none',
+                    display: show ? 'flex' : 'none',
                 },
                 height: 56,
                 borderBottom: `1px solid ${grey[300]}`,
@@ -54,12 +57,12 @@ export default function GlobalChartDrawer() {
                 lineHeight: '24px',
                 fontWeight: '900',
             }}>
-                Charts
+                {title}
             </Typography>
         </ButtonBase>
         <Box
             sx={{
-                display: pathnames[1] === 'charts' ? 'flex' : 'none',
+                display: show ? 'flex' : 'none',
                 position: 'fixed',
                 top: 0,
                 left: 0,
@@ -78,11 +81,11 @@ export default function GlobalChartDrawer() {
                     right: 0,
                     width: '100% !important',
                     transition: 'transform 0.5s ease',
-                    transform: `translateY(${menuOpen ? '0%' : '-100%'})`,
+                    transform: `translateY(${show && menuOpen ? '0%' : '-100%'})`,
                     height: `calc(100% - 70px)`,
                     borderBottom: `1px solid ${grey[300]}`,
                     borderRight: 'none',
-                    zIndex: menuDisplay === 'flex' ? 999 : -1,
+                    zIndex: show && menuDisplay === 'flex' ? 999 : -1,
                 },
             }}>
             <Box sx={{
@@ -99,10 +102,10 @@ export default function GlobalChartDrawer() {
                         pt: 1,
                     },
                 }}>
-                    {charts.map((item, index) => {
-                        const focused = type === item.type
+                    {array.map((item, index) => {
+                        const focused = id === item.type
                         return <Link key={index} href={{
-                            pathname: '/charts/[id]',
+                            pathname: `/${pathnames[1]}/[id]`,
                             query: { id: item.type },
                         }}
                             passHref
@@ -113,7 +116,9 @@ export default function GlobalChartDrawer() {
                                 '@media(max-width: 828px)': {
                                     p: theme.spacing(1, 2.5),
                                 },
-                            }}>
+                            }}
+                                onClick={handleMenuClick}
+                            >
                                 <Typography sx={{
                                     fontSize: 16,
                                     lineHeight: '24px',
@@ -132,5 +137,5 @@ export default function GlobalChartDrawer() {
                 </Box>
             </Box>
         </Box >
-    </>
+    </> : <></>
 }

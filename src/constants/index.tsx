@@ -3,13 +3,13 @@ export const pages = [
     icon: 'cubes',
     title: 'Foundation',
     description: '공통된 가치와 원칙을 통해 팀이 통일된 언어로 제품을 만들어내는 데 도움을 줍니다.',
-    url: '',
+    url: '/foundation',
   },
   {
     icon: 'rubik',
     title: 'Components',
     description: '의료기관에 맞춤화되었으며 팀이 의료진을 최우선으로 데이터 플랫폼을 만들 수 있게 해줍니다.',
-    url: '',
+    url: '/components',
   },
   {
     icon: 'bar-chart',
@@ -21,9 +21,52 @@ export const pages = [
     icon: 'map',
     title: 'Guidelines',
     description: '팀이 의료기관에게 고유하고 일관된 사용자 경험을 제공하는 것을 유지하도록 합니다.',
-    url: '',
+    url: '/guidelines',
   }
 ]
+
+export const foundations = [
+  {
+    icon: '',
+    title: 'Color System',
+    type: 'color_system',
+    description: 'KDWS 컬러 시스템은 기획자가 일관된 경험을 제공할 수 있도록 합니다. 와이어프레임 단계에서 의료기관이 기획자의 메시지를 명확하게 이해할 수 있도록 의도를 갖고 색상을 적용합니다.'
+  },
+  {
+    icon: '',
+    title: 'Iconography',
+    type: 'iconograyphy'
+  },
+  {
+    icon: '',
+    title: 'Spacing',
+    type: 'spacing'
+  },
+  {
+    icon: '',
+    title: 'Typography',
+    type: 'typography'
+  },
+]
+
+export const components = [
+  {
+    icon: '',
+    title: 'Data Grid',
+    type: 'data_grid',
+    description: '데이터 그리드는 인터액티브한 표 형태의 인터페이스이며 KDWS에서 가장 중요하고 복잡한 패턴 중 하나입니다.'
+  },
+  {
+    icon: '',
+    title: 'Data Table',
+    type: 'data_table',
+    description: '테이블은 필터링하거나 편집할 필요가 없는 데이터셋을 표시하는 데 사용됩니다.'
+  },
+]
+
+
+
+
 
 export const charts = [
   {

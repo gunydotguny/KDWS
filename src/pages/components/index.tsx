@@ -1,7 +1,7 @@
 import { Box, ButtonBase, Typography } from "@mui/material";
 import { theme } from "../../themes/theme";
 import { deepPurple, grey } from "@mui/material/colors";
-import { charts, foundations } from "../../constants";
+import { charts, components } from "../../constants";
 import Link from "next/link";
 
 export default function App() {
@@ -53,7 +53,7 @@ export default function App() {
                             lineHeight: '40px',
                         },
                     }}>
-                        Charts
+                        Components
                     </Typography>
                     <Typography sx={{
                         mt: 2,
@@ -65,7 +65,7 @@ export default function App() {
                             lineHeight: '24px',
                         },
                     }}>
-                        KDWS Charts는 의료 데이터 연구에 필수적인 시각화 자료를 팀이 쉽게 만들어낼 수 있게 돕습니다. Bar Chart부터 Circos까지 다양한 종류의 시각화 자료를 선택하고, 실제 데이터를 입력해 보고, 원하는 사이즈의 그림파일로 다운로드하여 와이어프레임 제작에 사용할 수 있습니다.
+                        KDWS의 컴포넌트는 명확한 표준에 따라 기획자가 재사용 가능한 구성요소로 이루어져 있으며, 수많은 변형과 조립 형태로 사용할 수 있습니다.
                     </Typography>
                     <ButtonBase sx={{
                         mt: 4,
@@ -108,8 +108,8 @@ export default function App() {
                     m: theme.spacing('40px', 0, '0'),
                 },
             }}>
-                {charts.map((item, index) => {
-                    return <Link key={index} href={`/charts/${item.type}`} passHref>
+                {components.map((item, index) => {
+                    return <Link key={index} href={`/components/${item.type}`} passHref>
                         <ButtonBase
                             disableRipple
                             sx={{
@@ -159,7 +159,7 @@ export default function App() {
                                     objectFit: 'cover'
                                 }
                             }}>
-                                <img src={`/charts/${item.type}.png`} className="icon" />
+                                <img src={`/components/${item.type}.png`} className="icon" />
                             </Box>
                             <Box sx={{
                                 flex: 1,
