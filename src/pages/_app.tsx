@@ -61,39 +61,39 @@ function MyApp(props: MyAppProps) {
     <CacheProvider value={emotionCache}>
       <Head>
         <meta charSet="utf-8" />
-        <title>POLARIS, 정밀의료 지식은행</title>
+        <title>KHC DP Wireframe System</title>
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover"
         />
-        <meta name="keywords" content="유하, 유튜브, 유튜버, 광고" />
+        <meta name="keywords" content="1@" />
         <meta
           name="description"
-          content="유하에서 국내 모든 유튜버에게 광고를 제안하고 답장을 100% 받아보세요. 광고주와 유튜버의 인플루언서 마케팅 커뮤니티 (브랜디드 콘텐츠, PPL 등)"
+          content="1@"
         />
         ㄴ
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="유하" />
-        <meta property="og:title" content="POLARIS, 정밀의료 지식은행" />
+        <meta property="og:site_name" content="KHC DP Wireframe System" />
+        <meta property="og:title" content="KHC DP Wireframe System" />
         <meta
           property="og:description"
-          content="유하에서 국내 모든 유튜버에게 광고를 제안하고 답장을 100% 받아보세요. 광고주와 유튜버의 인플루언서 마케팅 커뮤니티 (브랜디드 콘텐츠, PPL 등)"
+          content="1@"
         />
         <meta property="og:image" content="/images/favicon/share.png" />
         <meta property="og:image:width" content="200" />
         <meta property="og:image:height" content="200" />
         <meta property="og:image:type" content="image/png" />
-        <meta property="og:url" content="https://youha.info" />
+        <meta property="og:url" content="https://1@" />
         <meta name="twitter:card" content="summary" data-react-helmet="true" />
         <meta name="twitter:creator" content="" data-react-helmet="true" />
         <meta
           name="twitter:title"
-          content="POLARIS, 정밀의료 지식은행"
+          content="KHC DP Wireframe System"
           data-react-helmet="true"
         />
         <meta
           name="twitter:description"
-          content="유하에서 국내 모든 유튜버에게 광고를 제안하고 답장을 100% 받아보세요. 광고주와 유튜버의 인플루언서 마케팅 커뮤니티 (브랜디드 콘텐츠, PPL 등)"
+          content="1@"
           data-react-helmet="true"
         />
         <meta name="twitter:image" content="/images/share.png" />
